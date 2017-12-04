@@ -6,6 +6,7 @@ const yargs = require('yargs');
 // Local variables
 var app = express();
 var args = yargs.argv;
+var restaurant = args.restaurant;
 
 app.use(bodyParser.urlencoded());
 app.use(bodyParser.json());
@@ -18,7 +19,7 @@ app.use((req, res, next) => {
 
 // Routing
 app.get('/', (req, res) => {
-    res.status(200).send('Version 1')
+    res.status(200).send(`Version 2: ${restaurant}`)
 });
 
 if (args.port) {
